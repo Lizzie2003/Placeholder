@@ -1,0 +1,37 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eafcfc;
+  }
+  
+tr:hover {background-color: aqua; cursor: pointer;}
+
+body{
+    background-image: url(cat.jpg);
+    background-repeat:no-repeat;
+    background-size: 100%;
+}
+
+button{
+    height: 40px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input{
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+button:hover{
+    background-color: aliceblue;
+}

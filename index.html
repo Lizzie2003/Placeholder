@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application de gestion des utilisateurs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Liste des utilisateurs</h1>
+
+    <form id="formulaire-de-recherche">
+      <input type="text" id="champ-de-saisie" placeholder="Rechercher par nom">
+      <button type="submit">Rechercher</button>
+    </form>
+  
+    <table id="utilisateurs">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>username</th>
+          <th>phone</th>
+          <th>Email</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Les utilisateurs seront ajoutés ici dynamiquement -->
+      </tbody>
+    </table> 
+
+    <script src="scripts.js"></script>
+</body>
+</html>
