@@ -1,6 +1,7 @@
 const searchForm = document.getElementById('formulaire-de-recherche');
 const searchInput = document.getElementById('champ-de-saisie');
 const usersTableBody = document.querySelector('#utilisateurs tbody');
+const errorMessage = document.getElementById('Erreur');
 
 //Fonction pour afficher  les données des utilisateurs dans le tableau
 function AfficherUtilisateurs(users) {
@@ -24,12 +25,15 @@ function AfficherUtilisateurs(users) {
 
 //requête HTTP GET pour récupérer les données des utilisateurs à partir de l'API JSONPlaceholder en utilisant le point de terminaison /users.
 fetch('https://jsonplaceholder.typicode.com/users')
-  .then((response) => response.json())
-  .then(data => {
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Erreur lors de la récupération des utilisateurs.');
+    }
+    return response.json();
+  })
+    .then(data => {
     // Affiche tous les utilisateurs au chargement initial
     AfficherUtilisateurs(data);
-
-
   
 
     // écouteur d'événement pour la soumission du formulaire
@@ -60,6 +64,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
 .catch((error) => {
   // Gérer les erreurs de la requête
   console.error('Erreur lors de la recherche :', error);
+  errorMessage.textContent = 'Il n\'existe aucun utilisateur de ce nom.';
 });
 
     // Point de terminaison fictif pour la recherche
@@ -101,12 +106,9 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
   .then(response => response.json())
   .then(data => {
     console.log("Utilisateur créé avec succès :", data);
-    // Gérer la réponse de la création de l'utilisateur
-    // Par exemple, mettre à jour l'affichage ou effectuer d'autres actions
   })
   .catch(error => {
     console.error("Erreur lors de la création de l'utilisateur :", error);
-    // Gérer l'erreur de création de l'utilisateur
-    // Par exemple, afficher un message d'erreur à l'utilisateur ou effectuer une autre action appropriée
+    errorMessage.textContent = 'Une erreur s\'est produite lors de la création de l\'utilisateur.';
   });
 

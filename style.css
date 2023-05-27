@@ -35,3 +35,7 @@ input{
 button:hover{
     background-color: aliceblue;
 }
+
+div{
+    color: red;
+}
